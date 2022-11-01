@@ -1,0 +1,45 @@
+<html>
+<head>
+<style>
+body{
+display:flex;
+align-items: center;
+justify-content: center;
+}
+.con{
+    background-color:#2e2e2e;
+    padding: 1em;
+    display: flex;
+    flex-direction:column ;
+    border-radius: 15px;
+    padding-right: 2em;
+    padding-left:2em;
+}
+.box{
+        padding: 1em;
+        color:#fff;
+        display: flex;
+    flex-direction:column ;
+    
+}
+</style>                                                                                                                          
+</head>
+<script>
+function validate()
+{
+var ele=parseInt(document.getElementById("textb1").value);
+var distxt=document.getElementById("textb2");
+if(ele<0)
+distxt.value="plz enter positive numbers"
+else
+distxt.value=ele+", "+(parseInt(ele)+2)+", "+(parseInt(ele)+4);
+}
+</script>
+<div class="con">
+    <center style="color:#fff; font-size: 3em;">Simple UI</center>
+    <div class="box">Enter value<input type="number" id="textb1" onChange="validate()"/></div>
+    <div class="box">Answer<input type="text" id="textb2"/></div>
+    
+</div>
+
+</html>
