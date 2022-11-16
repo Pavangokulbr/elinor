@@ -597,37 +597,43 @@ end of testimonials -->
         <div class="container-fluid text-light">
             <div class="row">
                 <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end align-items-center px-lg-5" data-aos="fade-right">
+                  
                     <div style="width:90%">
                         <div class="text-center text-lg-start py-4 pt-lg-0">
                             <p>CONTACT</p>
                             <h2 class="py-2">Send your query</h2>
                             <p class="para-light">Get In touch</p>
                         </div>
+                        <form name="google-sheet" method="post">
                         <div>
                             <div class="row" >
                                 <div class="col-lg-6">
                                     <div class="form-group py-2">
-                                        <input type="text" class="form-control form-control-input" id="exampleFormControlInput1" placeholder="Enter name">
+                                        <input type="text" name="Name" class="form-control form-control-input" id="exampleFormControlInput1" placeholder="Enter name">
                                     </div>                                
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group py-2">
-                                        <input type="email" class="form-control form-control-input" id="exampleFormControlInput2" placeholder="Enter phone number">
+                                        <input type="text" name="Contact" class="form-control form-control-input" id="exampleFormControlInput2" placeholder="Enter phone number">
                                     </div>                                 
                                 </div>
                             </div>
                             <div class="form-group py-1">
-                                <input type="email" class="form-control form-control-input" id="exampleFormControlInput3" placeholder="Enter email">
+                                <input type="email" name="Email" class="form-control form-control-input" id="exampleFormControlInput3" placeholder="Enter email">
                             </div>  
                             <div class="form-group py-2">
-                                <textarea class="form-control form-control-input" id="exampleFormControlTextarea1" rows="6" placeholder="Message"></textarea>
+                                <textarea name="Message"class="form-control form-control-input" id="exampleFormControlTextarea1" rows="6" placeholder="Message"></textarea>
                             </div>                            
                         </div>
+                    
                         <div class="my-3">
-                            <a class="btn form-control-submit-button" href="#your-link">Submit</a>
+                            <input type="submit" class="btn form-control-submit-button" value="Submit">
                         </div>
+                    </form>
                     </div> <!-- end of div -->
+
                 </div> <!-- end of col -->
+            </form>
                 <div class="col-lg-6 d-flex align-items-center" data-aos="fade-down">
                     <img class="img-fluid d-none d-lg-block" src="./assets/images/contact.jpg" alt="contact">        
                 </div> <!-- end of col -->
@@ -784,7 +790,17 @@ end of testimonials -->
         <img src="assets/images/up-arrow.png" alt="alternative">
     </button>
     <!-- end of back to top button -->
-
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxXy4fcvNeoncOyOtNm8tnSq2Qdwh1nqnulTx-wbVOPhxeTASQH2noq5kpYJjVyupxj8Q/exec'
+        const form = document.forms['google-sheet']
+     
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
     
     <!-- Scripts -->
     <script src="./js/bootstrap.min.js"></script><!-- Bootstrap framework -->
